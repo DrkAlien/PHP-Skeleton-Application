@@ -28,7 +28,7 @@ class Admins {
                               'title' => 'Success!',
                               'text'  => 'Admin account created!'
                     ];
-                    $this->request->session->set('alert', $alert);
+                    $this->session->set('alert', $alert);
                     $this->request::redirect(SITE_URL.'/'.$this->request->module.'/'.$this->request->controller.'/list');
                 }
             }
@@ -36,7 +36,7 @@ class Admins {
                       'title' => 'Error!',
                       'text'  => 'Account already exists or it cannot be created!'
             ];
-            $this->request->session->set('alert', $alert);
+            $this->session->set('alert', $alert);
             $this->response->setData($this->request->payload,'form');
         }
     }
@@ -50,7 +50,7 @@ class Admins {
                       'title' => 'Warning!',
                       'text'  => 'This admin account does not exist!'
             ];
-            $this->request->session->set('alert', $alert);
+            $this->session->set('alert', $alert);
             $this->request::redirect(SITE_URL.'/'.$this->request->module.'/'.$this->request->controller.'/list');
         }
         $this->response->setData($admin,'admin');
@@ -70,7 +70,7 @@ class Admins {
                       'title' => 'Success!',
                       'text'  => 'Admin account updated!'
             ];
-            $this->request->session->set('alert', $alert);
+            $this->session->set('alert', $alert);
         }
         $this->request::redirect(SITE_URL.'/'.$this->request->module.'/'.$this->request->controller.'/edit/'.$this->request->uuid);
     }
@@ -84,7 +84,7 @@ class Admins {
                               'title' => 'Success!',
                               'text'  => 'Account deleted!'
                     ];
-                    $this->request->session->set('alert', $alert);
+                    $this->session->set('alert', $alert);
                     $this->request::redirect(SITE_URL.'/'.$this->request->module.'/'.$this->request->controller.'/list/');
                 }
             }
@@ -92,7 +92,7 @@ class Admins {
                       'title' => 'Warning!',
                       'text'  => 'Please use the checkbox to confirm the deletion!'
             ];
-            $this->request->session->set('alert', $alert);
+            $this->session->set('alert', $alert);
             $this->request::redirect(SITE_URL.'/'.$this->request->module.'/'.$this->request->controller.'/delete/'.$this->request->uuid);
         }
         $this->response->setData($admin);

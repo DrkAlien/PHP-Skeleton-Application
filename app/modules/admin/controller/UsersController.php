@@ -28,7 +28,7 @@ class Users {
                             'title' => 'Success!',
                             'text'  => 'User account created!'
                     ];
-                    $this->request->session->set('alert', $alert);
+                    $this->session->set('alert', $alert);
                     $this->request::redirect(SITE_URL.'/'.$this->request->module.'/'.$this->request->controller.'/list');
                 }
             }
@@ -36,7 +36,7 @@ class Users {
                     'title' => 'Error!',
                     'text'  => 'Account already exists or it cannot be created!'
             ];
-            $this->request->session->set('alert', $alert);
+            $this->session->set('alert', $alert);
             $this->response->setData($this->request->payload,'form');
         }
     }
@@ -50,7 +50,7 @@ class Users {
                     'title' => 'Warning!',
                     'text'  => 'This user account does not exist!'
             ];
-            $this->request->session->set('alert', $alert);
+            $this->session->set('alert', $alert);
             $this->request::redirect(SITE_URL.'/'.$this->request->module.'/'.$this->request->controller.'/list');
         }
         $this->response->setData($user,'user');
@@ -70,7 +70,7 @@ class Users {
                     'title' => 'Success!',
                     'text'  => 'User account updated!'
             ];
-            $this->request->session->set('alert', $alert);
+            $this->session->set('alert', $alert);
         }
         $this->request::redirect(SITE_URL.'/'.$this->request->module.'/'.$this->request->controller.'/edit/'.$this->request->uuid);
     }
@@ -84,7 +84,7 @@ class Users {
                             'title' => 'Success!',
                             'text'  => 'Account deleted!'
                     ];
-                    $this->request->session->set('alert', $alert);
+                    $this->session->set('alert', $alert);
                     $this->request::redirect(SITE_URL.'/'.$this->request->module.'/'.$this->request->controller.'/list/');
                 }
             }
@@ -92,7 +92,7 @@ class Users {
                     'title' => 'Warning!',
                     'text'  => 'Please use the checkbox to confirm the deletion!'
             ];
-            $this->request->session->set('alert', $alert);
+            $this->session->set('alert', $alert);
             $this->request::redirect(SITE_URL.'/'.$this->request->module.'/'.$this->request->controller.'/delete/'.$this->request->uuid);
         }
         $this->response->setData($user);

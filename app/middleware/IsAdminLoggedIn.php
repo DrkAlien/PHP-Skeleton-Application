@@ -8,7 +8,7 @@ class IsAdminLoggedIn
 {
     public function handle($controller, \Closure $next) {
         if($controller->request->controller != 'Home' || (in_array($controller->request->controller,['Home']) && !in_array($controller->request->action,['login','logout']))) {
-            if(!$controller->request->session->exist('admin')) {
+            if(!$controller->session->exist('admin')) {
                 $controller->request::redirect(SITE_URL.'/'.$controller->request->module.'/login');
             }
         }

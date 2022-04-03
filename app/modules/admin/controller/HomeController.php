@@ -8,7 +8,7 @@ class Home {
 
     public function login() {
 
-        if($this->request->session->exist('admin')) {
+        if($this->session->exist('admin')) {
             $this->request::redirect(SITE_URL.'/'.$this->request->module.'/dashboard');
         }
 
@@ -25,7 +25,7 @@ class Home {
                 $adminSession->last_name = $admin->last_name;
                 $adminSession->role = $admin->role;
 
-                $this->request->session->set('admin',$adminSession);
+                $this->session->set('admin',$adminSession);
                 $this->request::redirect(SITE_URL.'/'.$this->request->module.'/dashboard');
             } else {
                 // set some errors and redirect
@@ -33,19 +33,19 @@ class Home {
                           'title' => 'Error!',
                           'text'  => 'Invalid credentials!'
                 ];
-                $this->request->session->set('alert', $alert);
+                $this->session->set('alert', $alert);
                 $this->request::redirect(SITE_URL.'/'.$this->request->module.'/login');
             }
         }
     }
 
     public function logout() {
-        $this->request->session->del('admin');
+        $this->session->del('admin');
         $alert = ['type' => 'success',
                   'title' => 'Success!',
                   'text'  => 'You have successfully been logged out!'
         ];
-        $this->request->session->set('alert', $alert);
+        $this->session->set('alert', $alert);
         $this->request::redirect(SITE_URL.'/'.$this->request->module.'/login');
     }
 
