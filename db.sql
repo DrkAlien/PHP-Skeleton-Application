@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gazdă: 127.0.0.1
--- Timp de generare: feb. 23, 2022 la 12:24 AM
+-- Timp de generare: apr. 03, 2022 la 07:17 PM
 -- Versiune server: 10.4.17-MariaDB
 -- Versiune PHP: 7.4.15
 
@@ -33,7 +33,7 @@ CREATE TABLE `admins` (
   `last_name` varchar(50) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` varchar(20) NOT NULL DEFAULT 'superadmin',
+  `role` int(2) NOT NULL DEFAULT 1,
   `active` enum('0','1') NOT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
@@ -44,7 +44,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `first_name`, `last_name`, `email`, `password`, `role`, `active`, `updated_at`, `created_at`) VALUES
-(1, 'Admin', '', 'admin@admin.com', '$2y$10$uXWP9j2BAGQpqpXeRxjaJ.rQNu4lmxkuIA4Pt0dwc/wsM5ZWkPRZe', 'superadmin', '1', '2022-02-22 22:03:27', '2022-02-22 22:03:27');
+(1, 'Admin', 'Test', 'admin@admin.com', '$2y$10$1ZH2yu.6nPILEkFvgc/ERe1REDsRum1QowTehqy4k.h9pacl5sax6', 2, '1', '2022-04-03 16:13:01', '2022-02-22 22:03:27');
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `gender` enum('M','F') NOT NULL,
   `active` enum('0','1') NOT NULL,
-  `plan` varchar(50) NOT NULL,
+  `plan` int(2) NOT NULL,
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

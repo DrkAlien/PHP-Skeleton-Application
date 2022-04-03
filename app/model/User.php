@@ -9,6 +9,6 @@ class User extends Model {
     protected $fillable = ['first_name', 'last_name','email','password','gender','active','plan'];
 
     public function userPlan() {
-       return $this->hasOne('\App\Model\UserPlan', 'slug', 'plan');
+       return $this->hasOne('\App\Model\UserPlan', 'id', 'plan');
     }
 }

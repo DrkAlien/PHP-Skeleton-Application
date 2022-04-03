@@ -72,7 +72,7 @@
                                             <div class="col">
                                                 <select name="role" class="form-select">
                                                     <?php foreach($this->data['roles'] as $role) { ?>
-                                                        <option value="<?php echo $role['slug'] ?>" <?php echo ($role['slug'] == $this->data['admin']['role'])? 'selected=""':'' ?>><?php echo $role['label'] ?></option>
+                                                        <option value="<?php echo $role['id'] ?>" <?php echo ($role['id'] == $this->data['admin']['role'])? 'selected=""':'' ?>><?php echo $role['label'] ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>

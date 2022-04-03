@@ -72,7 +72,7 @@
                                             <div class="col">
                                                 <select name="plan" class="form-select">
                                                     <?php foreach($this->data['plans'] as $plan) { ?>
-                                                        <option value="<?php echo $plan['slug'] ?>"><?php echo $plan['label'].' ($'.$plan['price'].')' ?></option>
+                                                        <option value="<?php echo $plan['id'] ?>"><?php echo $plan['label'].' ($'.$plan['price'].')' ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
