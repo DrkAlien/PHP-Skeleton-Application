@@ -17,8 +17,8 @@ class Admins {
         // set the "roles" as key that will be used in the view. $this->data['roles']
         $this->response->setData($roles,'roles');
         if($this->request->method == 'POST' && !empty($this->request->payload)) {
-            if(isset($this->request->payload['email']) && filter_var($this->request->payload['email'], FILTER_VALIDATE_EMAIL)) {
-                $found = Admin::where('email',$this->request->payload['email'])->first();
+            if($this->request->has('email') && filter_var($this->request->get('email'), FILTER_VALIDATE_EMAIL)) {
+                $found = Admin::where('email',$this->request->get('email'))->first();
                 if(isset($this->request->payload['password']) && !empty($this->request->payload['password']) && empty($found)) {
                     $this->request->payload['password'] = password_hash($this->request->payload['password'], PASSWORD_BCRYPT);
                     $obj = Admin::create($this->request->payload);

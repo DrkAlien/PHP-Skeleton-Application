@@ -24,6 +24,26 @@ class Request {
         header('Location: '.$to);exit;
     }
 
+    public function get($var = '') {
+        if(isset($this->{$var})) {
+            return $this->{$var};
+        }
+        if(isset($this->payload[$var])) {
+            return $this->payload[$var];
+        }
+        return '';
+    }
+
+    public function has($var = '') {
+        if(isset($this->{$var})) {
+            return true;
+        }
+        if(isset($this->payload[$var])) {
+            return true;
+        }
+        return false;
+    }
+
     /*
     *   Create Route variables and request data
     *   The URL structure mush follow this rule
