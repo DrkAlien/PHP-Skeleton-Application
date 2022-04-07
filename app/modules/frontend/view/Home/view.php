@@ -100,7 +100,7 @@
                         <div class="card">
                             <div class="card-status-top bg-danger"></div>
                             <div class="card-body">
-                                <h3 class="card-title">App\Request Object (w/o Session)</h3>
+                                <h3 class="card-title">App\Request Object</h3>
                                 <p>In controller: $this->request</p>
                                 <?php echo '<pre/>';print_r($this->data['request']); ?>
                             </div>

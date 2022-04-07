@@ -9,12 +9,14 @@ class Request {
     public $action;
     public $payload;
 
+    private $headers;
     private $conf;
 
     public function __construct($conf) {
         $this->conf = $conf;
         $this->getRoute();
         unset($this->conf);
+        $this->headers = getallheaders();
     }
 
     public static function redirect($to) {
@@ -22,6 +24,27 @@ class Request {
         header("Cache-Control: post-check=0, pre-check=0", false);
         header("Pragma: no-cache");
         header('Location: '.$to);exit;
+    }
+
+    public function headers() {
+        return $this->headers;
+    }
+
+    public function hasHeader($key = '') {
+        if(isset($this->headers[$key])) {
+            return true;
+        }
+        return false;
+    }
+
+    public function getHeader($key = '') {
+        if(empty($this->headers)) {
+            $this->headers();
+        }
+        if(isset($this->headers[$key])) {
+            return $this->headers[$key];
+        }
+        return '';
     }
 
     public function get($var = '') {
