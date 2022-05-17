@@ -16,17 +16,21 @@ class Response {
 
     public function __construct() {}
 
-    public function getControllerUrl() {
+    public function getControllerUrl() :string {
         $module = ($this->module != App::$conf->module->defaultModule)? $this->module.'/':'';
         return SITE_URL.'/'.$module.$this->controller;
     }
 
-    public function getActionUrl() {
+    public function getActionUrl() :string {
         $module = ($this->module != App::$conf->module->defaultModule)? $this->module.'/':'';
         return $this->getControllerUrl().'/'.$this->action;
     }
 
-    public function setData($data, $key = '') {
+    public function setHeader(string $header = '') :void {
+        $this->headers[] = $header;
+    }
+
+    public function setData($data, string $key = '') {
         if(!empty($key) && is_string($key)) {
             $this->data[$key] = $data;
         } else {
@@ -34,26 +38,26 @@ class Response {
         }
     }
 
-    public function getData($key = '') {
+    public function getData(string $key = '') {
         if(!empty($key) && is_string($key)) {
             return (isset($this->data[$key]))? $this->data[$key]:'';
         }
         return $this->data;
     }
 
-    public function setView($path) {
+    public function setView(string $path) :void {
         $this->htmlPath = $path;
     }
 
-    public function setType($type) {
+    public function setType(string $type) :void {
         $this->type = $type;
     }
 
-    public function setCode($code) {
+    public function setCode(int $code) :void {
         $this->code = $code;
     }
 
-    public function loadHtml($path) {
+    public function loadHtml(string $path) {
         $html = '';
         if(file_exists($path)) {
             ob_start();
@@ -66,7 +70,7 @@ class Response {
         return $html;
     }
 
-    public function prepare() {
+    public function prepare() :self {
         $this->type = (empty($this->type))? App::$conf->module->{$this->module}->responseType:$this->type;
         switch($this->type) {
             default:
@@ -100,6 +104,7 @@ class Response {
     public function setBody($body) {
         $this->body = $body;
     }
+    
     public function getBody() {
         return $this->body;
     }

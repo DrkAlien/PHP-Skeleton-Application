@@ -26,18 +26,18 @@ class Request {
         header('Location: '.$to);exit;
     }
 
-    public function headers() {
+    public function headers() :array {
         return $this->headers;
     }
 
-    public function hasHeader($key = '') {
+    public function hasHeader(string $key = '') :bool {
         if(isset($this->headers[$key])) {
             return true;
         }
         return false;
     }
 
-    public function getHeader($key = '') {
+    public function getHeader(string $key = '') :string {
         if(empty($this->headers)) {
             $this->headers();
         }

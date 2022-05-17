@@ -61,7 +61,7 @@
                                         <div class="form-group mb-3 row">
                                             <label class="form-label col-3 col-form-label">Password</label>
                                             <div class="col">
-                                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                                <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off">
                                                 <small class="form-hint">
                                                     Your password is recomended to be 8-20 characters long, contain letters, special characters and numbers, must not contain spaces or emoji.
                                                 </small>
