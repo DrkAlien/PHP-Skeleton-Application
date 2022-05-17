@@ -9,7 +9,7 @@ At start, it contains three modules: frontend, admin and api.
 
 ### How to use it
 1. Clone the repository
-2. Create your database and import the php_app.sql file
+2. Create your database and import the db.sql file
 3. Run `composer update`
 4. Edit the config.php to match your environment
 5. Login to your **SITE_URL**/admin with admin@admin.com and pass: 123456

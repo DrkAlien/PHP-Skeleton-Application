@@ -4,7 +4,7 @@ define('PER_PAGE','15');
 // database
 $conf['database']['driver'] = 'mysql';
 $conf['database']['host'] = 'localhost';
-$conf['database']['database'] = 'php_app';
+$conf['database']['database'] = 'phpskeleton';
 $conf['database']['username'] = 'root';
 $conf['database']['password'] = '';
 
