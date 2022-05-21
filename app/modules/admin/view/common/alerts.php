@@ -1,7 +1,8 @@
 <?php
 // success, info, warning, danger
-if(\App\App::$session->exist('alert')) {
-    $alert = \App\App::$session->get('alert');
+$alert = Leaf\Http\Session::get('alert');
+#echo '<pre/>';var_dump($alert);exit;
+if($alert) {
     ?>
     <div class="alert alert-<?php echo $alert['type'] ?> alert-dismissible" role="alert">
         <div class="d-flex">
@@ -14,9 +15,7 @@ if(\App\App::$session->exist('alert')) {
             <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
         </div>
     </div>
-<?php
-    \App\App::$session->del('alert');
-    // you have to commit your changes to the session
-    \App\App::$session->commit();
+    <?php
+    Leaf\Http\Session::unset('alert');
 }
 ?>

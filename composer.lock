@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "142d5d80f13249f6fbc9cb9d1a909b34",
+    "content-hash": "d39c79c35e080730263dad9a7d01d2dc",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -96,59 +96,6 @@
                 }
             ],
             "time": "2021-10-22T20:16:43+00:00"
-        },
-        {
-            "name": "ghostff/session",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Ghostff/Session.git",
-                "reference": "7a97bf50afcd27170167bc0da23ba1b6b87617ff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Ghostff/Session/zipball/7a97bf50afcd27170167bc0da23ba1b6b87617ff",
-                "reference": "7a97bf50afcd27170167bc0da23ba1b6b87617ff",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Ghostff\\Session\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "ghostff",
-                    "email": "frankchris@hotmail.com"
-                }
-            ],
-            "description": "PHP Session Manager (non-blocking, flash, segment, session encryption).",
-            "keywords": [
-                "memcached",
-                "non-blocking",
-                "redis",
-                "secured-session",
-                "segment",
-                "session",
-                "session-manger",
-                "sql"
-            ],
-            "support": {
-                "issues": "https://github.com/Ghostff/Session/issues",
-                "source": "https://github.com/Ghostff/Session/tree/v2.0.0"
-            },
-            "time": "2022-01-14T02:41:39+00:00"
         },
         {
             "name": "illuminate/collections",
@@ -534,6 +481,129 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2022-05-09T16:28:53+00:00"
+        },
+        {
+            "name": "leafs/anchor",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leafsphp/anchor.git",
+                "reference": "3ea546866a2f658fc3afdb4240ed949f0e2b07c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leafsphp/anchor/zipball/3ea546866a2f658fc3afdb4240ed949f0e2b07c2",
+                "reference": "3ea546866a2f658fc3afdb4240ed949f0e2b07c2",
+                "shasum": ""
+            },
+            "require-dev": {
+                "pestphp/pest": "^1.21"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Leaf\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Darko",
+                    "email": "mickdd22@gmail.com",
+                    "homepage": "https://mychi.netlify.app",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Leaf PHP util module",
+            "homepage": "https://leafphp.netlify.app/#/",
+            "keywords": [
+                "framework",
+                "leaf",
+                "php",
+                "util"
+            ],
+            "support": {
+                "issues": "https://github.com/leafsphp/anchor/issues",
+                "source": "https://github.com/leafsphp/anchor/tree/v1.2.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/leafsphp",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/leaf",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2022-01-22T14:14:28+00:00"
+        },
+        {
+            "name": "leafs/session",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leafsphp/session.git",
+                "reference": "34ffdcac2d59ec721840f2e46d6fed3dccfe7e24"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leafsphp/session/zipball/34ffdcac2d59ec721840f2e46d6fed3dccfe7e24",
+                "reference": "34ffdcac2d59ec721840f2e46d6fed3dccfe7e24",
+                "shasum": ""
+            },
+            "require": {
+                "leafs/anchor": "^1.2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "Leaf\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Darko",
+                    "email": "mickdd22@gmail.com",
+                    "homepage": "https://mychi.netlify.app",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Leaf PHP session + flash modules",
+            "homepage": "https://leafphp.netlify.app/#/",
+            "keywords": [
+                "flash",
+                "framework",
+                "http",
+                "leaf",
+                "php",
+                "session"
+            ],
+            "support": {
+                "issues": "https://github.com/leafsphp/session/issues",
+                "source": "https://github.com/leafsphp/session/tree/v1.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/leafsphp",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/leaf",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2022-01-22T14:45:22+00:00"
         },
         {
             "name": "nesbot/carbon",

@@ -1,5 +1,6 @@
 <?php
 namespace App\Admin\Controller;
+use Leaf\Http\Session;
 
 use App\Model\User;
 use App\Model\Admin;
@@ -7,8 +8,9 @@ use App\Model\Admin;
 class Home {
 
     public function login() {
-
-        if($this->session->exist('admin')) {
+        $adminSession = Session::get('admin');
+        #echo '<pre/>';var_dump($adminSession);exit;
+        if($adminSession) {
             $this->request::redirect(SITE_URL.'/'.$this->request->module.'/dashboard');
         }
 
@@ -19,13 +21,14 @@ class Home {
                 $admin = Admin::where('email',$email)->first();
             }
             if(isset($admin->password) && password_verify($this->request->payload['password'], $admin->password)) {
+                #echo '<pre/>';print_r($admin);exit;
                 $adminSession = new \stdClass();
                 $adminSession->id = $admin->id;
                 $adminSession->first_name = $admin->first_name;
                 $adminSession->last_name = $admin->last_name;
                 $adminSession->role = $admin->role;
 
-                $this->session->set('admin',$adminSession);
+                Session::set('admin',$adminSession);
                 $this->request::redirect(SITE_URL.'/'.$this->request->module.'/dashboard');
             } else {
                 // set some errors and redirect
@@ -33,19 +36,20 @@ class Home {
                           'title' => 'Error!',
                           'text'  => 'Invalid credentials!'
                 ];
-                $this->session->set('alert', $alert);
+                #echo '<pre/>';print_r($alert);exit;
+                Session::set('alert', $alert);
                 $this->request::redirect(SITE_URL.'/'.$this->request->module.'/login');
             }
         }
     }
 
     public function logout() {
-        $this->session->del('admin');
+        Session::unset('admin');
         $alert = ['type' => 'success',
                   'title' => 'Success!',
                   'text'  => 'You have successfully been logged out!'
         ];
-        $this->session->set('alert', $alert);
+        Session::set('alert', $alert);
         $this->request::redirect(SITE_URL.'/'.$this->request->module.'/login');
     }
 

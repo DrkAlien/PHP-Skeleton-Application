@@ -4,7 +4,7 @@ namespace App;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
-use Ghostff\Session\Session;
+use Leaf\Http\Session;
 use \stdClass;
 
 class App {
@@ -13,7 +13,6 @@ class App {
     public $request;
     public $response;
     public static $conf;
-    public static $session;
 
     public function __construct($conf) {
         self::$conf = json_decode(json_encode($conf));
@@ -21,8 +20,7 @@ class App {
         $this->loadEloquent();
         $this->request = new Request(self::$conf);
         if(self::$conf->module->{$this->request->module}->requireSession) {
-            // https://github.com/Ghostff/Session
-            self::$session = new Session();
+            new Session;
         }
     }
 
@@ -79,7 +77,6 @@ class App {
         $controller = new $controller();
         // assign the Request and the Response to the controller
         $controller->request = $this->request;
-        $controller->session = self::$session;
         $controller->response = new Response();
         // run the controller and the middlewares
         $controller = $this->middleware($controller, function($controller) {

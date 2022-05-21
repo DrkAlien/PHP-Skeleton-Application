@@ -1,8 +1,8 @@
 {
     "require": {
         "illuminate/database": "^8.81",
-        "ghostff/session": "^2.0",
-        "illuminate/pagination": "^8.83"
+        "illuminate/pagination": "^8.83",
+        "leafs/session": "^1.1"
     },
     "autoload": {
         "psr-4": {
