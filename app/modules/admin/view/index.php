@@ -14,7 +14,7 @@
         var site_url = '<?= SITE_URL ?>';
         </script>
     </head>
-    <body  class="<?php echo ($this->action == 'login')? 'border-top-wide border-primary d-flex flex-column ':'' ?>theme-dark">
+    <body  class="<?php echo ($this->action == 'login')? 'border-top-wide border-primary d-flex flex-column ':'layout-fluid' ?> theme-dark">
         <?php include dirname(__FILE__).'/'.ucfirst($this->controller).'/'.$this->action.'.php' ?>
     </body>
     <script src="<?= BASE_URL ?>/assets/admin/js/tabler.min.js"></script>
