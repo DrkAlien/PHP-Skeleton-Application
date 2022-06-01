@@ -67,6 +67,16 @@ class Request {
         return false;
     }
 
+    public function getContent() {
+        try {
+            $body = file_get_contents("php://input");
+            $jsonBody = json_decode($body, $associative=true, $depth=512, JSON_THROW_ON_ERROR);
+            return $jsonBody;
+        } catch (\JsonException $e) {
+            return $body;
+        }
+    }
+
     /*
     *   Create Route variables and request data
     *   The URL structure mush follow this rule
