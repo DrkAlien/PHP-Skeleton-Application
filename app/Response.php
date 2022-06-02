@@ -46,17 +46,17 @@ class Response {
         return $this->data;
     }
 
-    public function setView(string $path) :void {
+    public function setView(string $path) :self {
         $this->htmlPath = $path;
         return $this;
     }
 
-    public function setType(string $type) :void {
+    public function setType(string $type) :self {
         $this->type = $type;
         return $this;
     }
 
-    public function setCode(int $code) :void {
+    public function setCode(int $code) :self {
         $this->code = $code;
         return $this;
     }
@@ -105,7 +105,7 @@ class Response {
     }
 
     // body is sent directly to the end user
-    public function setBody($body) {
+    public function setBody($body) :self {
         $this->body = $body;
         return $this;
     }
