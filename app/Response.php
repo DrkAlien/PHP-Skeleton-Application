@@ -36,6 +36,7 @@ class Response {
         } else {
             $this->data = $data;
         }
+        return $this;
     }
 
     public function getData(string $key = '') {
@@ -47,14 +48,17 @@ class Response {
 
     public function setView(string $path) :void {
         $this->htmlPath = $path;
+        return $this;
     }
 
     public function setType(string $type) :void {
         $this->type = $type;
+        return $this;
     }
 
     public function setCode(int $code) :void {
         $this->code = $code;
+        return $this;
     }
 
     public function loadHtml(string $path) {
@@ -103,6 +107,7 @@ class Response {
     // body is sent directly to the end user
     public function setBody($body) {
         $this->body = $body;
+        return $this;
     }
     
     public function getBody() {
