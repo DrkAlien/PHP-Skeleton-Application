@@ -28,7 +28,7 @@ class PrepareResponse
             ->requestParams are the params from the URL /a/val_1/b/val_2/...
         */
         foreach($controller->request as $k => $v) {
-            if(!in_array($k, $ignoreKeys)) {
+            if(!in_array($k, $ignoreKeys) && is_string($v)) {
                 $controller->response->requestParams[$k] = $k.'/'.$v;
             }
         }
